@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f5f5f5;
+}
+
+li,
+a,
+h1,
+button {
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+
+  /*Space between hace que cuando tengas dos links por ejemplo,
+  estos se vayan a los bordes del contenedor, o si tienes 3,
+  uno se quedara justo en el centro y los otros dos en los bordes*/
+  justify-content: space-between;
+  align-items: center;
+
+  /*Pruebo a poner porcentajes a ver si asi no se vuelve loco*/
+  padding: 20px 10%;
+  background-color: #333;
+}
+
+.logo {
+  width: 200px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 100px;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-links li {
+  display: inline;
+  padding: 0 20px;
+}
+
+.nav-links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav-links li a:hover {
+  color: rgb(0, 139, 0);
+}
+
+button {
+  padding: 9px 25px;
+  background-color: rgba(0, 139, 0, 1);
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover {
+  background-color: rgba(0, 139, 120, 0.8);
+}
+
+/*A partir de aqui el codigo de quien haga styles-------------------*/
