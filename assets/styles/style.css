@@ -8,7 +8,8 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  background-color: #f5f5f5;
+  background-color: #005e3ab4;
+  height: 100vh;
 }
 
 li,
@@ -31,8 +32,8 @@ header {
   align-items: center;
 
   /*Pruebo a poner porcentajes a ver si asi no se vuelve loco*/
-  padding: 20px 10%;
-  background-color: #333;
+  padding: 20px 2%;
+  background-color: #2e2d2d;
 }
 
 .logo {
@@ -59,9 +60,11 @@ header {
   color: rgb(0, 139, 0);
 }
 
+
+
 button {
   padding: 9px 25px;
-  background-color: rgba(0, 139, 0, 1);
+  background-color: #008b00;
   cursor: pointer;
   border: none;
   border-radius: 50px;
@@ -69,7 +72,58 @@ button {
 }
 
 button:hover {
-  background-color: rgba(0, 139, 120, 0.8);
+  background-color: #008b78cc;
 }
 
 /*A partir de aqui el codigo de quien haga styles-------------------*/
+
+/* Divs*/
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 6%  auto;
+  max-width: 700px;
+  min-width: 600px;
+}
+
+.juego1, .juego2, .tienda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2e2d2d;
+  margin: 20px;
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease 0s;
+}
+
+.juego1:hover,.juego2:hover, .tienda:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.tienda{
+  width: 600px;
+  height: 200px;
+}
+
+
+
+/* Footer */
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 20px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color:#2e2d2d ;
+  
+}
