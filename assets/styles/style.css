@@ -22,6 +22,11 @@ button {
   text-decoration: none;
 }
 
+button {
+  background-color: #008b00;
+  border: none;
+}
+
 header {
   display: flex;
 

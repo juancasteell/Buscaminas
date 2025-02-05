@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const botonCentral = document.querySelector(".botonCentral");
 
   let width = 10;
-  let cantidadBombas = 5;
+  let cantidadBombas = 30;
   let flags = 0;
   let cuadrados = [];
   let count = 0; // para el temporizador
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Funcion que crea tablero
   function createBoard() {
-    // Obtener array de juego mezclado con bombas aleatorias
+    // Arrays
     const arrayBombas = Array(cantidadBombas).fill("bomb"); // crear array de bombas
     const arrayVacio = Array(width * width - cantidadBombas).fill("valid"); // crear array vacío
     const arrayJuego = arrayVacio.concat(arrayBombas); // combinar ambos arrays
@@ -64,54 +64,34 @@ document.addEventListener("DOMContentLoaded", () => {
       const isRightEdge = i % width === width - 1;
 
       if (cuadrados[i].classList.contains("valid")) {
-        if (
-          i > 0 &&
-          !isLeftEdge &&
-          cuadrados[i - 1].classList.contains("bomb")
-        ) {
-          total++;
-        }
-        if (
-          i > 9 &&
-          !isRightEdge &&
-          cuadrados[i + 1 - width].classList.contains("bomb")
-        ) {
-          total++;
-        }
-        if (i > 10 && cuadrados[i - width].classList.contains("bomb")) {
-          total++;
-        }
-        if (
-          i > 11 &&
-          !isLeftEdge &&
-          cuadrados[i - 1 - width].classList.contains("bomb")
-        ) {
-          total++;
-        }
-        if (
-          i < 98 &&
-          !isRightEdge &&
-          cuadrados[i + 1].classList.contains("bomb")
-        ) {
-          total++;
-        }
-        if (
-          i < 90 &&
-          !isLeftEdge &&
-          cuadrados[i - 1 + width].classList.contains("bomb")
-        ) {
-          total++;
-        }
-        if (
-          i < 88 &&
-          !isRightEdge &&
-          cuadrados[i + 1 + width].classList.contains("bomb")
-        ) {
-          total++;
-        }
-        if (i < 89 && cuadrados[i + width].classList.contains("bomb")) {
-          total++;
-        }
+        const surroundingSquares = [
+          i - 1, // izquierda
+          i + 1, // derecha
+          i - width, // arriba
+          i + width, // abajo
+          i - width - 1, // arriba izquierda
+          i - width + 1, // arriba derecha
+          i + width - 1, // abajo izquierda
+          i + width + 1, // abajo derecha
+        ];
+
+        surroundingSquares.forEach((pos) => {
+          if (
+            pos >= 0 &&
+            pos < width * width &&
+            !(
+              (isLeftEdge &&
+                [i - 1, i - width - 1, i + width - 1].includes(pos)) ||
+              (isRightEdge &&
+                [i + 1, i - width + 1, i + width + 1].includes(pos))
+            )
+          ) {
+            if (cuadrados[pos].classList.contains("bomb")) {
+              total++;
+            }
+          }
+        });
+
         cuadrados[i].setAttribute("data", total);
       }
     }
@@ -177,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cuadrado.classList.add("checked");
   }
 
-  // Comprobar fichas vecinas una vez que se hace clic en una ficha
+  // Comprobar cuadrados vecinos una vez que se hace clic en una cuadrado
   // Crea el efecto de expansión
   function checkcuadrado(cuadrado, currentId) {
     const isLeftEdge = currentId % width === 0;
@@ -239,9 +219,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let startTime = function () {
     intervalRef = setInterval(() => {
       count += 10;
-      let s = Math.floor(count / 1000);
-      timer.innerHTML = s;
-      if (s >= 60) {
+      let segundos = Math.floor(count / 1000);
+      timer.innerHTML = segundos;
+      if (segundos >= 60) {
         clearInterval(intervalRef);
         timeUp();
       }

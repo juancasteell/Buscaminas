@@ -60,11 +60,12 @@ body {
 .grid {
   width: 400px;
   height: 400px;
+  max-width: 400px;
+  max-height: 400px;
   display: flex;
   flex-wrap: wrap;
   background: #acbfa4;
-  border: 10px solid #acbfa4;
-  margin-bottom: 20px;
+  /* overflow: hidden; Evita desbordamientos */
 }
 
 .grid div {
@@ -74,6 +75,7 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  box-sizing: border-box; /* Asegura que el tamaño total incluye el borde */
 }
 
 .valid,
