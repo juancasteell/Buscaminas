@@ -1,13 +1,19 @@
 body {
-  background-image: url(/assets/img/alien.webp);
+  background-image: url(/assets/img/space.jpg);
   background-size: cover;
 }
 
 .titulo {
   font-size: 40px;
-  color: #ff7f11;
+  color: #91fef0;
+  text-shadow:0 0 5px #39ff14, 0 0 10px #39ff14; 
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 11px;
+  background-color: #262626;
+  padding: 10px;
+  border-radius: 7px;
+  border-color: #91fef0; /* Verde neón */ 
+  box-shadow: 0 0 5px #91fef0, 0 0 10px #91fef0;
 }
 
 .container {
@@ -22,10 +28,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #acbfa4;
-  border-top: 10px solid #acbfa4;
-  border-left: 10px solid #acbfa4;
-  border-right: 10px solid #acbfa4;
+  background-image: url(/assets/img/metal.jpg);
+  border-top: 10px solid #f2f2f2;
+  border-left: 10px solid #d7d7d7;
+  border-right: 10px solid #d7d7d7;
 }
 
 .flag-box,
@@ -37,7 +43,7 @@ body {
   height: 75px;
   background: #262626;
   border: 5px solid;
-  border-color: #7c8a76 #e2e8ce #e2e8ce #7c8a76;
+  border-color: #9ea2a2 #9ea2a2 #f9f9f9 #f9f9f9;
   color: #ff7f11;
 }
 
@@ -46,12 +52,12 @@ body {
   justify-content: center;
   align-items: center;
   width: 85px;
-  height: 85px;
+  height: 75px;
   margin: 0 20px 0 20px;
   padding-top: 5px;
-  background: #acbfa4;
+  background-image: url(/assets/img/metal.jpg);
   border: 5px solid;
-  border-color: #e2e8ce #7c8a76 #7c8a76 #e2e8ce;
+  border-color: #9ea2a2 #9ea2a2 #f9f9f9 #f9f9f9;
   outline: none;
   font-size: 2.1em;
   cursor: pointer;
@@ -64,7 +70,7 @@ body {
   max-height: 400px;
   display: flex;
   flex-wrap: wrap;
-  background: #acbfa4;
+  background-image: url(/assets/img/metal.jpg);
   /* overflow: hidden; Evita desbordamientos */
 }
 
@@ -78,14 +84,15 @@ body {
   box-sizing: border-box; /* Asegura que el tamaño total incluye el borde */
 }
 
-.valid,
-.bomb {
-  height: 40px;
-  width: 40px;
-  border: 5px solid;
-  border-color: #e2e8ce #7c8a76 #7c8a76 #e2e8ce;
-  box-sizing: border-box;
-}
+.valid, 
+.bomb { 
+  height: 40px; 
+  width: 40px; 
+  border: 5px solid; 
+  border-color: #91fef0; /* Verde neón */ 
+  box-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14; /* Efecto de brillo */ 
+  box-sizing: border-box; 
+}  
 
 .checked {
   height: 40px;
