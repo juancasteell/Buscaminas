@@ -3,7 +3,7 @@ body {
   background-size: cover;
 }
 
-.title {
+.titulo {
   font-size: 40px;
   color: #ff7f11;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -41,7 +41,7 @@ body {
   color: #ff7f11;
 }
 
-.emoji-btn {
+.botonCentral {
   display: flex;
   justify-content: center;
   align-items: center;

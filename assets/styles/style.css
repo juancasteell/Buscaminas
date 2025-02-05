@@ -60,9 +60,7 @@ header {
   color: rgb(0, 139, 0);
 }
 
-
-
-button {
+.contacto {
   padding: 9px 25px;
   background-color: #008b00;
   cursor: pointer;
@@ -71,7 +69,7 @@ button {
   transition: all 0.3s ease 0s;
 }
 
-button:hover {
+.contacto:hover {
   background-color: #008b78cc;
 }
 
@@ -83,12 +81,14 @@ button:hover {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin: 6%  auto;
+  margin: 6% auto;
   max-width: 700px;
   min-width: 600px;
 }
 
-.juego1, .juego2, .tienda {
+.juego1,
+.juego2,
+.tienda {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,17 +101,17 @@ button:hover {
   transition: all 0.3s ease 0s;
 }
 
-.juego1:hover,.juego2:hover, .tienda:hover {
+.juego1:hover,
+.juego2:hover,
+.tienda:hover {
   transform: scale(1.1);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-.tienda{
+.tienda {
   width: 600px;
   height: 200px;
 }
-
-
 
 /* Footer */
 
@@ -124,6 +124,5 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color:#2e2d2d ;
-  
+  background-color: #2e2d2d;
 }
