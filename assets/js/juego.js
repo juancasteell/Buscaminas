@@ -2,14 +2,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   const grid = document.querySelector(".grid");
   const flagsLeft = document.querySelector("#flags-left");
-  const result = document.querySelector("#result");
+  const resultado = document.querySelector("#resultado");
   const timer = document.querySelector("#timer");
-  const emojiBtn = document.querySelector(".emoji-btn");
+  const botonCentral = document.querySelector(".botonCentral");
 
   let width = 10;
-  let bombAmount = 5;
+  let cantidadBombas = 5;
   let flags = 0;
-  let squares = [];
+  let cuadrados = [];
   let count = 0; // para el temporizador
   let intervalRef = null; // para el temporizador
   let isGameOver = false;
@@ -17,216 +17,220 @@ document.addEventListener("DOMContentLoaded", () => {
   // Funcion que crea tablero
   function createBoard() {
     // Obtener array de juego mezclado con bombas aleatorias
-    const bombsArray = Array(bombAmount).fill("bomb"); // crear array de bombas
-    const emptyArray = Array(width * width - bombAmount).fill("valid"); // crear array vacío
-    const gameArray = emptyArray.concat(bombsArray); // combinar ambos arrays
-    const shuffledArray = gameArray.sort(() => Math.random() - 0.5); // mezclar bombas por todo el array
+    const arrayBombas = Array(cantidadBombas).fill("bomb"); // crear array de bombas
+    const arrayVacio = Array(width * width - cantidadBombas).fill("valid"); // crear array vacío
+    const arrayJuego = arrayVacio.concat(arrayBombas); // combinar ambos arrays
+    const arrayMezclado = arrayJuego.sort(() => Math.random() - 0.5); // mezclar bombas por todo el array
 
-    emojiBtn.innerHTML = "🙂";
-    flagsLeft.innerHTML = bombAmount;
+    botonCentral.innerHTML = "🙂";
+    flagsLeft.innerHTML = cantidadBombas;
 
     //
     for (let i = 0; i < width * width; i++) {
-      const square = document.createElement("div");
-      square.setAttribute("id", i);
-      square.classList.add(shuffledArray[i]);
-      grid.appendChild(square);
-      squares.push(square);
+      const cuadrado = document.createElement("div");
+      cuadrado.setAttribute("id", i);
+      cuadrado.classList.add(arrayMezclado[i]);
+      grid.appendChild(cuadrado);
+      cuadrados.push(cuadrado);
 
       // Click normal
-      square.addEventListener("click", function (e) {
+      cuadrado.addEventListener("click", function (e) {
         if (isGameOver) {
           return;
         }
-        emojiBtn.innerHTML = "😬";
-        click(square);
+        botonCentral.innerHTML = "😬";
+        click(cuadrado);
       });
 
       // ctrl y click izquierdo
-      square.oncontextmenu = function (e) {
+      cuadrado.oncontextmenu = function (e) {
         e.preventDefault();
-        addFlag(square);
+        addFlag(cuadrado);
       };
 
       // Mouseover
-      square.addEventListener("mouseover", function (e) {
+      cuadrado.addEventListener("mouseover", function (e) {
         if (isGameOver) {
           return;
         }
-        emojiBtn.innerHTML = "🤔";
+        botonCentral.innerHTML = "🤔";
       });
     }
 
     // Añadir números a las fichas
-    for (let i = 0; i < squares.length; i++) {
+    for (let i = 0; i < cuadrados.length; i++) {
       let total = 0;
       const isLeftEdge = i % width === 0;
       const isRightEdge = i % width === width - 1;
 
-      if (squares[i].classList.contains("valid")) {
-        if (i > 0 && !isLeftEdge && squares[i - 1].classList.contains("bomb")) {
+      if (cuadrados[i].classList.contains("valid")) {
+        if (
+          i > 0 &&
+          !isLeftEdge &&
+          cuadrados[i - 1].classList.contains("bomb")
+        ) {
           total++;
         }
         if (
           i > 9 &&
           !isRightEdge &&
-          squares[i + 1 - width].classList.contains("bomb")
+          cuadrados[i + 1 - width].classList.contains("bomb")
         ) {
           total++;
         }
-        if (i > 10 && squares[i - width].classList.contains("bomb")) {
+        if (i > 10 && cuadrados[i - width].classList.contains("bomb")) {
           total++;
         }
         if (
           i > 11 &&
           !isLeftEdge &&
-          squares[i - 1 - width].classList.contains("bomb")
+          cuadrados[i - 1 - width].classList.contains("bomb")
         ) {
           total++;
         }
         if (
           i < 98 &&
           !isRightEdge &&
-          squares[i + 1].classList.contains("bomb")
+          cuadrados[i + 1].classList.contains("bomb")
         ) {
           total++;
         }
         if (
           i < 90 &&
           !isLeftEdge &&
-          squares[i - 1 + width].classList.contains("bomb")
+          cuadrados[i - 1 + width].classList.contains("bomb")
         ) {
           total++;
         }
         if (
           i < 88 &&
           !isRightEdge &&
-          squares[i + 1 + width].classList.contains("bomb")
+          cuadrados[i + 1 + width].classList.contains("bomb")
         ) {
           total++;
         }
-        if (i < 89 && squares[i + width].classList.contains("bomb")) {
+        if (i < 89 && cuadrados[i + width].classList.contains("bomb")) {
           total++;
         }
-        squares[i].setAttribute("data", total);
+        cuadrados[i].setAttribute("data", total);
       }
     }
   }
   createBoard();
 
   // Añadir bandera con clic derecho
-  function addFlag(square) {
+  function addFlag(cuadrado) {
     if (isGameOver) {
       return;
     }
-    if (!square.classList.contains("checked") && flags < bombAmount) {
-      if (!square.classList.contains("flag")) {
-        square.classList.add("flag");
-        square.innerHTML = "🚩";
+    if (!cuadrado.classList.contains("checked") && flags < cantidadBombas) {
+      if (!cuadrado.classList.contains("flag")) {
+        cuadrado.classList.add("flag");
+        cuadrado.innerHTML = "🚩";
         flags++;
-        flagsLeft.innerHTML = bombAmount - flags;
+        flagsLeft.innerHTML = cantidadBombas - flags;
         checkForWin();
       } else {
-        square.classList.remove("flag");
-        square.innerHTML = "";
+        cuadrado.classList.remove("flag");
+        cuadrado.innerHTML = "";
         flags--;
-        flagsLeft.innerHTML = bombAmount - flags; // arreglar para que se pueda desmarcar la bandera si se ha colocado la última bandera
+        flagsLeft.innerHTML = cantidadBombas - flags; // arreglar para que se pueda desmarcar la bandera si se ha colocado la última bandera
       }
     }
   }
 
   // Acciones al hacer clic en una ficha
-  function click(square) {
-    let currentId = square.id;
+  function click(cuadrado) {
+    let currentId = cuadrado.id;
     if (isGameOver) {
       return;
     }
     if (
-      square.classList.contains("checked") ||
-      square.classList.contains("flag")
+      cuadrado.classList.contains("checked") ||
+      cuadrado.classList.contains("flag")
     ) {
       return;
     }
-    if (square.classList.contains("bomb")) {
+    if (cuadrado.classList.contains("bomb")) {
       gameOver();
     } else {
-      let total = square.getAttribute("data");
+      let total = cuadrado.getAttribute("data");
       if (total != 0) {
-        square.classList.add("checked");
+        cuadrado.classList.add("checked");
         if (total == 1) {
-          square.classList.add("one");
+          cuadrado.classList.add("one");
         } // añadiendo clases para colores
         if (total == 2) {
-          square.classList.add("two");
+          cuadrado.classList.add("two");
         }
         if (total == 3) {
-          square.classList.add("three");
+          cuadrado.classList.add("three");
         }
         if (total == 4) {
-          square.classList.add("four");
+          cuadrado.classList.add("four");
         }
-        square.innerHTML = total;
+        cuadrado.innerHTML = total;
         return;
       }
-      checkSquare(square, currentId);
+      checkcuadrado(cuadrado, currentId);
     }
-    square.classList.add("checked");
+    cuadrado.classList.add("checked");
   }
 
   // Comprobar fichas vecinas una vez que se hace clic en una ficha
   // Crea el efecto de expansión
-  function checkSquare(square, currentId) {
+  function checkcuadrado(cuadrado, currentId) {
     const isLeftEdge = currentId % width === 0;
     const isRightEdge = currentId % width === width - 1;
 
     setTimeout(() => {
       if (currentId > 0 && !isLeftEdge) {
-        const newId = squares[parseInt(currentId) - 1].id;
+        const newId = cuadrados[parseInt(currentId) - 1].id;
         //const newId = parseInt(currentId) - 1   ....refactor
-        const newSquare = document.getElementById(newId);
-        click(newSquare);
+        const newcuadrado = document.getElementById(newId);
+        click(newcuadrado);
       }
       if (currentId > 9 && !isRightEdge) {
-        const newId = squares[parseInt(currentId) + 1 - width].id;
+        const newId = cuadrados[parseInt(currentId) + 1 - width].id;
         //const newId = parseInt(currentId) +1 -width   ....refactor
-        const newSquare = document.getElementById(newId);
-        click(newSquare);
+        const newcuadrado = document.getElementById(newId);
+        click(newcuadrado);
       }
       if (currentId >= 10) {
-        const newId = squares[parseInt(currentId - width)].id;
+        const newId = cuadrados[parseInt(currentId - width)].id;
         //const newId = parseInt(currentId) -width   ....refactor
-        const newSquare = document.getElementById(newId);
-        click(newSquare);
+        const newcuadrado = document.getElementById(newId);
+        click(newcuadrado);
       }
       if (currentId >= 11 && !isLeftEdge) {
-        const newId = squares[parseInt(currentId) - 1 - width].id;
+        const newId = cuadrados[parseInt(currentId) - 1 - width].id;
         //const newId = parseInt(currentId) -1 -width   ....refactor
-        const newSquare = document.getElementById(newId);
-        click(newSquare);
+        const newcuadrado = document.getElementById(newId);
+        click(newcuadrado);
       }
       if (currentId <= 98 && !isRightEdge) {
-        const newId = squares[parseInt(currentId) + 1].id;
+        const newId = cuadrados[parseInt(currentId) + 1].id;
         //const newId = parseInt(currentId) +1   ....refactor
-        const newSquare = document.getElementById(newId);
-        click(newSquare);
+        const newcuadrado = document.getElementById(newId);
+        click(newcuadrado);
       }
       if (currentId < 90 && !isLeftEdge) {
-        const newId = squares[parseInt(currentId) - 1 + width].id;
+        const newId = cuadrados[parseInt(currentId) - 1 + width].id;
         //const newId = parseInt(currentId) -1 +width   ....refactor
-        const newSquare = document.getElementById(newId);
-        click(newSquare);
+        const newcuadrado = document.getElementById(newId);
+        click(newcuadrado);
       }
       if (currentId <= 88 && !isRightEdge) {
-        const newId = squares[parseInt(currentId) + 1 + width].id;
+        const newId = cuadrados[parseInt(currentId) + 1 + width].id;
         //const newId = parseInt(currentId) +1 +width   ....refactor
-        const newSquare = document.getElementById(newId);
-        click(newSquare);
+        const newcuadrado = document.getElementById(newId);
+        click(newcuadrado);
       }
       if (currentId <= 89) {
-        const newId = squares[parseInt(currentId) + width].id;
+        const newId = cuadrados[parseInt(currentId) + width].id;
         //const newId = parseInt(currentId) +width   ....refactor
-        const newSquare = document.getElementById(newId);
-        click(newSquare);
+        const newcuadrado = document.getElementById(newId);
+        click(newcuadrado);
       }
     }, 10);
   }
@@ -237,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
       count += 10;
       let s = Math.floor(count / 1000);
       timer.innerHTML = s;
-      if (s >= 90) {
+      if (s >= 60) {
         clearInterval(intervalRef);
         timeUp();
       }
@@ -250,30 +254,30 @@ document.addEventListener("DOMContentLoaded", () => {
   // Tiempo agotado
   function timeUp() {
     timer.innerHTML = "END";
-    emojiBtn.innerHTML = "😞";
-    result.innerHTML = "¡Se acabó el tiempo!";
+    botonCentral.innerHTML = "😞";
+    resultado.innerHTML = "¡Se acabó el tiempo!";
     isGameOver = "true";
 
     // Mostrar TODAS las bombas
-    squares.forEach((square) => {
-      if (square.classList.contains("bomb")) {
-        square.innerHTML = "💣";
+    cuadrados.forEach((cuadrado) => {
+      if (cuadrado.classList.contains("bomb")) {
+        cuadrado.innerHTML = "💣";
       }
     });
   }
 
   // Fin del juego
-  function gameOver(square) {
+  function gameOver(cuadrado) {
     clearInterval(intervalRef);
     timer.innerHTML = "END";
-    emojiBtn.innerHTML = "😵";
-    result.innerHTML = "¡BOOM! ¡Fin del juego!";
+    botonCentral.innerHTML = "😵";
+    resultado.innerHTML = "¡BOOM! ¡Fin del juego!";
     isGameOver = true;
 
     // Mostrar TODAS las bombas
-    squares.forEach((square) => {
-      if (square.classList.contains("bomb")) {
-        square.innerHTML = "💣";
+    cuadrados.forEach((cuadrado) => {
+      if (cuadrado.classList.contains("bomb")) {
+        cuadrado.innerHTML = "💣";
       }
     });
   }
@@ -282,26 +286,26 @@ document.addEventListener("DOMContentLoaded", () => {
   function checkForWin() {
     let matches = 0;
 
-    for (let i = 0; i < squares.length; i++) {
+    for (let i = 0; i < cuadrados.length; i++) {
       if (
-        squares[i].classList.contains("flag") &&
-        squares[i].classList.contains("bomb")
+        cuadrados[i].classList.contains("flag") &&
+        cuadrados[i].classList.contains("bomb")
       ) {
         matches++;
       }
-      if (matches === bombAmount) {
+      if (matches === cantidadBombas) {
         clearInterval(intervalRef);
         timer.innerHTML = "WIN";
-        emojiBtn.innerHTML = "😎";
-        result.innerHTML = "¡HAS GANADO!";
+        botonCentral.innerHTML = "😎";
+        resultado.innerHTML = "¡HAS GANADO!";
         isGameOver = true;
       }
     }
   }
 
   // Reiniciar juego
-  emojiBtn.addEventListener("click", function (e) {
-    emojiBtn.style.borderColor = "#F0B7A4 #FFEBCF #FFEBCF #F0B7A4";
+  botonCentral.addEventListener("click", function (e) {
+    botonCentral.style.borderColor = "#F0B7A4 #FFEBCF #FFEBCF #F0B7A4";
     location.reload();
   });
 });
