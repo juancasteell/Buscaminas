@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #3f7d5c;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    background-color: #222;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header img {
+    height: 40px;
+}
+.header button {
+    background-color: #008000;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.header button:hover {
+    background-color: #006400;
+}
+.store {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+.product {
+    background-color: #222;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+}
+.product img {
+    width: 100px;
+    border-radius: 5px;
+}
+.product button {
+    background-color: #008000;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.product button:hover {
+    background-color: #006400;
+}
+.cart-container {
+    background-color: #f9f9f9;
+    color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+#cart {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+    max-height: 200px; /* Altura máxima */
+    overflow-y: auto;  /* Barra de desplazamiento vertical */
+}
+#cart li {
+    background-color: #e6e6e6;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.total-price {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.checkout-btn {
+    background-color: #008000;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+.checkout-btn:hover {
+    background-color: #006400;
+}
+
