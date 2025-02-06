@@ -8,7 +8,8 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  background-color: #005e3ab4;
+  background-image: url(/assets/img/mina4.webp);
+  background-size: cover;
   height: 100vh;
 }
 
@@ -97,13 +98,33 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #2e2d2d;
   margin: 20px;
   width: 300px;
   height: 300px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease 0s;
+}
+
+.juego1{
+  background-image: url(/assets/img/alienfondo.webp);
+  background-size: cover;
+  background-position: center;
+  color: #91fef0;
+  text-shadow:0 0 5px #2a5043, 0 0 10px #2a5043;
+  border-color: #91fef0; /* Verde neón */ 
+  box-shadow: 0 0 5px #91fef0, 0 0 10px #91fef0;
+
+}
+
+.juego2{
+  background-image: url(/assets/img/piratafondo.webp);
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  text-shadow:0 0 5px #0059ff, 0 0 10px #0059ff; 
+  border-color: #000000; /* Verde neón */ 
+  box-shadow: 0 0 5px #0059ff, 0 0 10px #0059ff;
 }
 
 .juego1:hover,
@@ -114,8 +135,12 @@ header {
 }
 
 .tienda {
+  background-image: url(/assets/img/shop.webp);
+  background-size: cover;
   width: 600px;
   height: 200px;
+  text-shadow:0 0 20px #000000, 0 0 20px #000000; 
+  
 }
 
 /* Footer */
