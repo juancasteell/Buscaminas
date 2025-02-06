@@ -6,16 +6,15 @@ body {
 .titulo {
   font-size: 40px;
   color: #ffffff;
-  text-shadow:0 0 5px #0059ff, 0 0 10px #0059ff; 
+  text-shadow: 0 0 5px #0059ff, 0 0 10px #0059ff;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 11px;
   background-image: url(/assets/img/madera.avif);
   padding: 10px;
   border-radius: 7px;
-  border-color: #000000; /* Verde neón */ 
+  border-color: #000000; /* Verde neón */
   box-shadow: 0 0 5px #000000, 0 0 10px #000000;
 }
-
 
 .container {
   display: flex;
@@ -99,22 +98,26 @@ body {
   width: 40px;
   border: 2px solid;
   background-color: #262626;
-  border-color:#a96c3e #724829 #724829 #a96c3e;
+  border-color: #a96c3e #724829 #724829 #a96c3e;
   box-sizing: border-box;
 }
 
-.one {
+.uno {
   color: #4299e1;
 }
 
-.two {
+.dos {
   color: #48bb78;
 }
 
-.three {
+.tres {
   color: #f56565;
 }
 
-.four {
+.cuatro {
   color: #9f7aea;
+}
+
+.cinco {
+  color: #6f5f91;
 }
