@@ -6,13 +6,13 @@ body {
 .titulo {
   font-size: 40px;
   color: #91fef0;
-  text-shadow:0 0 5px #39ff14, 0 0 10px #39ff14; 
+  text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 11px;
   background-color: #262626;
   padding: 10px;
   border-radius: 7px;
-  border-color: #91fef0; /* Verde neón */ 
+  border-color: #91fef0; /* Verde neón */
   box-shadow: 0 0 5px #91fef0, 0 0 10px #91fef0;
 }
 
@@ -84,15 +84,15 @@ body {
   box-sizing: border-box; /* Asegura que el tamaño total incluye el borde */
 }
 
-.valid, 
-.bomb { 
-  height: 40px; 
-  width: 40px; 
-  border: 5px solid; 
-  border-color: #91fef0; /* Verde neón */ 
-  box-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14; /* Efecto de brillo */ 
-  box-sizing: border-box; 
-}  
+.valid,
+.bomb {
+  height: 40px;
+  width: 40px;
+  border: 5px solid;
+  border-color: #91fef0; /* Verde neón */
+  box-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14; /* Efecto de brillo */
+  box-sizing: border-box;
+}
 
 .checked {
   height: 40px;
@@ -103,18 +103,22 @@ body {
   box-sizing: border-box;
 }
 
-.one {
+.uno {
   color: #4299e1;
 }
 
-.two {
+.dos {
   color: #48bb78;
 }
 
-.three {
+.tres {
   color: #f56565;
 }
 
-.four {
+.cuatro {
   color: #9f7aea;
+}
+
+.cinco {
+  color: #6f5f91;
 }
