@@ -1,0 +1,54 @@
+#login-register {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 50px;
+  }
+  
+  .auth-form {
+    background-color: #222;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .auth-form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .auth-form button {
+    background-color: #008000;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .auth-form button:hover {
+    background-color: #006400;
+  }
+  
+  #profile {
+    background-color: #222;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+  }

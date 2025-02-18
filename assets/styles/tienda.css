@@ -1,102 +1,147 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #3f7d5c;
-    margin: 0;
-    padding: 0;
-}
-.header {
-    background-color: #222;
-    color: white;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.header img {
-    height: 40px;
-}
-.header button {
-    background-color: #008000;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.header button:hover {
-    background-color: #006400;
-}
-.store {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-}
-.product {
-    background-color: #222;
-    color: white;
-    border-radius: 10px;
-    padding: 20px;
-    width: 200px;
-    text-align: center;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-}
-.product img {
-    width: 100px;
-    border-radius: 5px;
-}
-.product button {
-    background-color: #008000;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    margin-top: 10px;
-    border-radius: 5px;
-}
-.product button:hover {
-    background-color: #006400;
-}
-.cart-container {
-    background-color: #f9f9f9;
-    color: #333;
-    border-radius: 10px;
-    padding: 20px;
-    width: 90%;
-    max-width: 400px;
-    margin: 20px auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-#cart {
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 20px;
-    max-height: 200px; /* Altura máxima */
-    overflow-y: auto;  /* Barra de desplazamiento vertical */
-}
-#cart li {
-    background-color: #e6e6e6;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 5px;
-}
-.total-price {
-    font-size: 18px;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-.checkout-btn {
-    background-color: #008000;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 100%;
-}
-.checkout-btn:hover {
-    background-color: #006400;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #3f7d5c;
+  margin: 0;
+  padding: 0;
 }
 
+.inicio {
+  padding: 9px 25px;
+  background-color: #008b00;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  transition: all 0.3s ease 0s;
+}
+
+/* Estilos para la tienda */
+.store {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px; /* Más espacio entre productos */
+  padding: 40px 20px; /* Más padding */
+  background-color: rgba(34, 34, 34, 0.9); /* Fondo semi-transparente */
+  border-radius: 15px; /* Bordes redondeados */
+  margin: 20px auto; /* Centrar la tienda */
+  max-width: 1200px; /* Ancho máximo */
+}
+
+.product {
+  background-color: #222;
+  color: white;
+  border-radius: 15px; /* Bordes más redondeados */
+  padding: 20px;
+  width: 250px; /* Ancho un poco mayor */
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+.product:hover {
+  transform: translateY(-10px); /* Efecto de levantar */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Sombra más intensa al hacer hover */
+}
+
+.product img {
+  width: 150px; /* Imágenes más grandes */
+  border-radius: 10px; /* Bordes redondeados */
+  margin-bottom: 15px; /* Espacio debajo de la imagen */
+}
+
+.product h3 {
+  font-size: 1.5rem; /* Título más grande */
+  margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+.product p {
+  font-size: 1.2rem; /* Texto un poco más grande */
+  margin-bottom: 15px; /* Espacio debajo del precio */
+}
+
+.product button {
+  background-color: #008000;
+  color: white;
+  padding: 12px 20px; /* Botón más grande */
+  border: none;
+  cursor: pointer;
+  border-radius: 8px; /* Bordes más redondeados */
+  font-size: 1rem; /* Texto del botón más grande */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.product button:hover {
+  background-color: #006400; /* Color más oscuro al hacer hover */
+}
+
+/* Estilos para el carrito de compras */
+.cart-container {
+  background-color: #f9f9f9;
+  color: #333;
+  border-radius: 15px; /* Bordes más redondeados */
+  padding: 25px; /* Más padding */
+  width: 90%;
+  max-width: 500px; /* Ancho máximo */
+  margin: 30px auto; /* Más margen */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+#cart {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+  max-height: 250px; /* Altura máxima */
+  overflow-y: auto; /* Barra de desplazamiento vertical */
+}
+
+#cart li {
+  background-color: #e6e6e6;
+  border-radius: 8px; /* Bordes más redondeados */
+  padding: 12px; /* Más padding */
+  margin-bottom: 10px; /* Espacio entre elementos */
+  font-size: 1rem; /* Texto más grande */
+}
+
+.total-price {
+  font-size: 1.2rem; /* Texto más grande */
+  margin-bottom: 15px; /* Espacio debajo del total */
+  font-weight: bold;
+}
+
+.checkout-btn {
+  background-color: #008000;
+  color: white;
+  padding: 12px 20px; /* Botón más grande */
+  border: none;
+  cursor: pointer;
+  border-radius: 8px; /* Bordes más redondeados */
+  font-size: 1rem; /* Texto más grande */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.checkout-btn:hover {
+  background-color: #006400; /* Color más oscuro al hacer hover */
+}
+
+/* Estilos para el perfil */
+#profile {
+  background-color: #222;
+  color: white;
+  border-radius: 15px; /* Bordes más redondeados */
+  padding: 25px; /* Más padding */
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+  margin: 30px auto; /* Más margen */
+}
+
+#profile h2 {
+  font-size: 1.5rem; /* Título más grande */
+  margin-bottom: 15px; /* Espacio debajo del título */
+}
+
+#profile p {
+  font-size: 1.2rem; /* Texto más grande */
+  margin-bottom: 10px; /* Espacio debajo del texto */
+}

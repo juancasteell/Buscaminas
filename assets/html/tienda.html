@@ -1,63 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda</title>
-   <link rel="stylesheet" href="/assets/styles/style.css">
-   <link rel="stylesheet" href="/assets/styles/tienda.css">
-</head>
-<body>
-    <div class="header">
-        <img class="logo" src="/assets/img/minesweepr.webp" alt="logo">
-        <h1>Tienda de Buscaminas</h1>
-        <a href="contacto.html" class="contacto"><button>Contacto</button></a>
-        <a href="index.html" class="inicio"><button>Inicio</button></a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda - Tienda Buscaminas</title>
+    <link rel="stylesheet" href="../styles/tienda.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="/assets/img/minesweepr.webp" alt="logo" />
+      <nav class="nav-links">
+        <h1>Tienda Buscaminas</h1>
+      </nav>
+      <a href="../html/index.html" class="inicio"><button>Inicio</button></a>
+    </header>
+
+    <div id="store" class="store">
+      <div class="product">
+        <img src="/assets/img/minaroja.webp" alt="bombas personalizadas" />
+        <h3>Bombas Personalizadas</h3>
+        <p>Precio: $5</p>
+        <button onclick="addToCart('bombas personalizadas', 5)">
+          Agregar al Carrito
+        </button>
+      </div>
+      <div class="product">
+        <img src="/assets/img/minaroja.webp" alt="fondo Personalizado" />
+        <h3>Fondo Personalizado</h3>
+        <p>Precio: $15</p>
+        <button onclick="addToCart('fondo Personalizado', 15)">
+          Agregar al Carrito
+        </button>
+      </div>
+      <div class="product">
+        <img src="/assets/img/minaroja.webp" alt="fondo Personalizado" />
+        <h3>Fondo Personalizado</h3>
+        <p>Precio: $15</p>
+        <button onclick="addToCart('fondo Personalizado', 15)">
+          Agregar al Carrito
+        </button>
+      </div>
     </div>
-    <div class="store">
-        <div class="product">
-            <img src="/assets/img/minaroja.webp" alt="bombas personalizadas">
-            <h3>Bombas Personalizadas</h3>
-            <p>Precio: $5</p>
-            <button onclick="addToCart('bombas personalizadas', 5)">Agregar al Carrito</button>
-        </div>
-        <div class="product">
-            <img src="/assets/img/minaroja.webp" alt="fondo Personalizado">
-            <h3>Fondo Personalizado</h3>
-            <p>Precio: $15</p>
-            <button onclick="addToCart('fondo Personalizado', 15)">Agregar al Carrito</button>
-        </div>
+
+    <h2 id="cart-title">Carrito de Compras</h2>
+    <div class="cart-container" id="cart-container">
+      <ul id="cart"></ul>
+      <div class="total-price">
+        <span>Total: </span><span id="total">$0</span>
+      </div>
+      <button id="checkout" class="checkout-btn">Finalizar Compra</button>
     </div>
-    <h2>Carrito de Compras</h2>
-    <div class="cart-container">
-        <ul id="cart"></ul>
-        <div class="total-price">
-            <span>Total: </span><span id="total">$0</span>
-        </div>
-        <button id="checkout" class="checkout-btn">Finalizar Compra</button>
+
+    <div id="profile">
+      <h2>Perfil de Jugador</h2>
+      <p>Bienvenido, <span id="username"></span>!</p>
+      <p>Puntos: <span id="points">0</span></p>
+      <button id="openInventory">Ver Inventario</button> <!-- Botón de inventario -->
     </div>
     
-   
-    <script>
-        let cart = [];
-        function addToCart(product, price) {
-            cart.push({ product, price });
-            updateCart();
-        }
-        function updateCart() {
-            const cartList = document.getElementById("cart");
-            const totalElement = document.getElementById("total");
-            cartList.innerHTML = "";
-            let totalPrice = 0;
-            cart.forEach(item => {
-                let li = document.createElement("li");
-                li.textContent = `${item.product} - $${item.price}`;
-                cartList.appendChild(li);
-                totalPrice += item.price;
-            });
-            totalElement.textContent = `$${totalPrice}`;
-        }
-    </script>
-     <footer class="footer">Footer</footer>
-</body>
+
+      <!-- Modal para mostrar el inventario -->
+      <div id="inventoryModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          
+          <ul id="inventoryList"></ul>
+        </div>
+      </div>
+      <footer>
+        <p>Footer</p>
+    </footer>
+
+  </body>
+<script src="../js/tienda.js"></script>
+
 </html>
