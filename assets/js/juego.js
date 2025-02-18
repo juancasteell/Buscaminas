@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const botonCentral = document.querySelector(".botonCentral"); // Selecciona el botón central para reiniciar el juego
 
   let width = 10; // Ancho del tablero
-  let cantidadBombas = 30; // Número de bombas en el tablero
+  let cantidadBombas = 20; // Número de bombas en el tablero
   let flags = 0; // Contador de banderas colocadas
   let cuadrados = []; // Array que contiene todos los cuadrados del tablero
   let count = 0; // para el temporizador
