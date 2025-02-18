@@ -83,8 +83,9 @@ body {
   padding: 25px; /* Más padding */
   width: 90%;
   max-width: 500px; /* Ancho máximo */
-  margin: 30px auto; /* Más margen */
+  margin: 30px 0 30px 30px; /* Más margen */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  float: left; /* Colocar a la izquierda */
 }
 
 #cart {
@@ -133,7 +134,8 @@ body {
   width: 300px;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
-  margin: 30px auto; /* Más margen */
+  margin: 30px 30px 30px 0; /* Más margen */
+  float: right; /* Colocar a la derecha */
 }
 
 #profile h2 {
