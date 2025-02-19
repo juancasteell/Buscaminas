@@ -22,15 +22,18 @@
         <h2>Carrito</h2>
         <ul id="cart"></ul>
         <div class="total-price">
-          <span>Total: </span><span id="total">$0</span>
-        </div>
+          <div class="mostrar_precio">
+            <span>Total: </span><span id="total"> $0</span>
+          </div>
+         
         <button id="checkout" class="checkout-btn">Finalizar Compra</button>
+        </div>
       </div>
       <div class="product">
         <img src="/assets/img/bomba_baguette.webp" alt="bombas personalizadas" />
         <h3>Bomba Baguette</h3>
         <p>Precio: $5</p>
-        <button onclick="addToCart('bombas personalizadas1', 5)">
+        <button onclick="addToCart('Bomba Baguette', 5)">
           Agregar al Carrito
         </button>
       </div>
@@ -38,7 +41,7 @@
         <img src="/assets/img/bomba_juan.webp" alt="fondo Personalizado" />
         <h3>Bomba Testo</h3>
         <p>Precio: $15</p>
-        <button onclick="addToCart('bombas personalizadas2', 15)">
+        <button onclick="addToCart('Bomba Testo', 15)">
           Agregar al Carrito
         </button>
       </div>
@@ -46,16 +49,19 @@
         <img src="/assets/img/bombaahmad.webp" alt="fondo Personalizado" />
         <h3>Bomba Ahmad</h3>
         <p>Precio: $200</p>
-        <button onclick="addToCart('bombas personalizadas3', 200)">
+        <button  onclick="addToCart('Bomba Ahmad', 200)">
           Agregar al Carrito
         </button>
       </div>
 
       <div id="profile">
-        <h2>Perfil de Jugador</h2>
-        <p>Bienvenido, <span id="username"></span>!</p>
-        <p>Puntos: <span id="points">0</span></p>
-        <button id="openInventory">Ver Inventario</button> <!-- Botón de inventario -->
+        <div><h2>Perfil de Jugador</h2>
+          <p>Bienvenido, <span id="username"></span>!</p>
+        </div>
+
+        <div><p>Puntos: <span id="points">0</span></p>
+          <button id="openInventory">Ver Inventario</button> <!-- Botón de inventario -->
+        </div>
       </div>
     </div>
     

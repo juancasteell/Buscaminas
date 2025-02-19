@@ -24,20 +24,20 @@ body {
   padding: 40px 20px; /* Más padding */
   background-color: rgba(34, 34, 34, 0.9); /* Fondo semi-transparente */
   border-radius: 15px; /* Bordes redondeados */
-  margin: 20px auto; /* Centrar la tienda */
-  width: 70%; /* Ancho máximo */
+  margin: 50px auto; /* Centrar la tienda */
+  width: 80%; /* Ancho máximo */
 }
 
 .product {
-  background-color: #222;
+  background-color: #013601;
   color: white;
   border-radius: 15px; /* Bordes más redondeados */
   padding: 20px;
-  width: 200px; /* Ancho un poco mayor */
+  width: 250px; /* Ancho un poco mayor */
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
- 
+ height: 350px;
 }
 
 .product:hover {
@@ -76,16 +76,27 @@ body {
   background-color: #006400; /* Color más oscuro al hacer hover */
 }
 
+buttonCarrito {
+  color: red;
+  font-size: 1.2rem;
+  margin-left: 10px;
+  cursor: pointer;
+ 
+}
+
 /* Estilos para el carrito de compras */
 .cart-container {
   background-color: #f9f9f9;
   color: #333;
   border-radius: 15px; /* Bordes más redondeados */
   padding: 25px; /* Más padding */
-  width: 200px;
-  margin: 30px 0 30px 30px; /* Más margen */
+  width: 300px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
   float: left; /* Colocar a la izquierda */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #cart {
@@ -98,19 +109,36 @@ body {
 
 #cart li {
   background-color: #e6e6e6;
+  color: black;
   border-radius: 8px; /* Bordes más redondeados */
-  padding: 12px; /* Más padding */
+  padding: 7px; /* Más padding */
   margin-bottom: 10px; /* Espacio entre elementos */
-  font-size: 1rem; /* Texto más grande */
+  font-size: 0.7rem; /* Texto más grande */
+  font-weight: bold;
+
 }
 
 .total-price {
   font-size: 1.2rem; /* Texto más grande */
   margin-bottom: 15px; /* Espacio debajo del total */
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
 }
 
-.checkout-btn {
+.mostrar_precio{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.mostrar_precio span{
+  margin-left: 10px;
+}
+
+.checkout-btn, #openInventory {
   background-color: #008000;
   color: white;
   padding: 12px 20px; /* Botón más grande */
@@ -120,6 +148,8 @@ body {
   font-size: 1rem; /* Texto más grande */
   transition: background-color 0.3s ease; /* Transición suave */
 }
+
+
 
 .checkout-btn:hover {
   background-color: #006400; /* Color más oscuro al hacer hover */
@@ -131,12 +161,17 @@ body {
   color: white;
   border-radius: 15px; /* Bordes más redondeados */
   padding: 25px; /* Más padding */
-  width: 200px;
+  width: 300px;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
-  margin: 30px 30px 30px 0; /* Más margen */
   float: right; /* Colocar a la derecha */
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
+
 
 #profile h2 {
   font-size: 1.5rem; /* Título más grande */
