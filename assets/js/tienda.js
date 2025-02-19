@@ -48,7 +48,7 @@ function updateCart() {
     li.textContent = `${item.product} - $${item.price} x${item.quantity}`;
     
     // Botón para eliminar el producto
-    let removeButton = document.createElement("button");
+    let removeButton = document.createElement("buttonCarrito");
     removeButton.textContent = "x";
     removeButton.onclick = () => removeFromCart(index);
     li.appendChild(removeButton);
