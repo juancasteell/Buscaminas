@@ -17,6 +17,15 @@
     </header>
 
     <div id="store" class="store">
+
+      <div class="cart-container" id="cart-container">
+        <h2>Carrito</h2>
+        <ul id="cart"></ul>
+        <div class="total-price">
+          <span>Total: </span><span id="total">$0</span>
+        </div>
+        <button id="checkout" class="checkout-btn">Finalizar Compra</button>
+      </div>
       <div class="product">
         <img src="/assets/img/bomba_baguette.webp" alt="bombas personalizadas" />
         <h3>Bomba Baguette</h3>
@@ -41,23 +50,13 @@
           Agregar al Carrito
         </button>
       </div>
-    </div>
 
-    
-    <div class="cart-container" id="cart-container">
-      <h2>Carrito</h2>
-      <ul id="cart"></ul>
-      <div class="total-price">
-        <span>Total: </span><span id="total">$0</span>
+      <div id="profile">
+        <h2>Perfil de Jugador</h2>
+        <p>Bienvenido, <span id="username"></span>!</p>
+        <p>Puntos: <span id="points">0</span></p>
+        <button id="openInventory">Ver Inventario</button> <!-- Botón de inventario -->
       </div>
-      <button id="checkout" class="checkout-btn">Finalizar Compra</button>
-    </div>
-
-    <div id="profile">
-      <h2>Perfil de Jugador</h2>
-      <p>Bienvenido, <span id="username"></span>!</p>
-      <p>Puntos: <span id="points">0</span></p>
-      <button id="openInventory">Ver Inventario</button> <!-- Botón de inventario -->
     </div>
     
 

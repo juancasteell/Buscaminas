@@ -26,6 +26,12 @@ button {
 button {
   background-color: #008b00;
   border: none;
+  padding: 9px 25px;
+border-radius: 50px;
+}
+
+button:hover{
+  background-color: #008b78cc;
 }
 
 header {
@@ -67,7 +73,6 @@ header {
 }
 
 .contacto {
-  padding: 9px 25px;
   background-color: #008b00;
   cursor: pointer;
   border: none;
@@ -148,7 +153,7 @@ footer {
   justify-content: center;
   align-items: center;
   color: white;
-  padding: 20px 0;
+  padding: 10px 0;
   position: absolute;
   bottom: 0;
   width: 100%;
