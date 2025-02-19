@@ -25,7 +25,7 @@ body {
   background-color: rgba(34, 34, 34, 0.9); /* Fondo semi-transparente */
   border-radius: 15px; /* Bordes redondeados */
   margin: 20px auto; /* Centrar la tienda */
-  max-width: 1200px; /* Ancho máximo */
+  width: 70%; /* Ancho máximo */
 }
 
 .product {
@@ -33,10 +33,11 @@ body {
   color: white;
   border-radius: 15px; /* Bordes más redondeados */
   padding: 20px;
-  width: 250px; /* Ancho un poco mayor */
+  width: 200px; /* Ancho un poco mayor */
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+ 
 }
 
 .product:hover {
@@ -81,8 +82,7 @@ body {
   color: #333;
   border-radius: 15px; /* Bordes más redondeados */
   padding: 25px; /* Más padding */
-  width: 90%;
-  max-width: 500px; /* Ancho máximo */
+  width: 200px;
   margin: 30px 0 30px 30px; /* Más margen */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
   float: left; /* Colocar a la izquierda */
@@ -131,7 +131,7 @@ body {
   color: white;
   border-radius: 15px; /* Bordes más redondeados */
   padding: 25px; /* Más padding */
-  width: 300px;
+  width: 200px;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
   margin: 30px 30px 30px 0; /* Más margen */
