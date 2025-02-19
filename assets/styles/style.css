@@ -106,24 +106,23 @@ header {
   transition: all 0.3s ease 0s;
 }
 
-.juego1{
+.juego1 {
   background-image: url(/assets/img/alienfondo.webp);
   background-size: cover;
   background-position: center;
   color: #91fef0;
-  text-shadow:0 0 5px #2a5043, 0 0 10px #2a5043;
-  border-color: #91fef0; /* Verde neón */ 
+  text-shadow: 0 0 5px #2a5043, 0 0 10px #2a5043;
+  border-color: #91fef0; /* Verde neón */
   box-shadow: 0 0 5px #91fef0, 0 0 10px #91fef0;
-
 }
 
-.juego2{
+.juego2 {
   background-image: url(/assets/img/piratafondo.webp);
   background-size: cover;
   background-position: center;
   color: #ffffff;
-  text-shadow:0 0 5px #0059ff, 0 0 10px #0059ff; 
-  border-color: #000000; /* Verde neón */ 
+  text-shadow: 0 0 5px #0059ff, 0 0 10px #0059ff;
+  border-color: #000000; /* Verde neón */
   box-shadow: 0 0 5px #0059ff, 0 0 10px #0059ff;
 }
 
@@ -139,8 +138,7 @@ header {
   background-size: cover;
   width: 600px;
   height: 200px;
-  text-shadow:0 0 20px #000000, 0 0 20px #000000; 
-  
+  text-shadow: 0 0 20px #000000, 0 0 20px #000000;
 }
 
 /* Footer */
