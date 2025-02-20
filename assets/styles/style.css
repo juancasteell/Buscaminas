@@ -45,7 +45,7 @@ header {
 
   /*Pruebo a poner porcentajes a ver si asi no se vuelve loco*/
   padding: 20px 2%;
-  background-color: #2e2d2d;
+  background-color: #153315;
 }
 
 .logo {
@@ -139,11 +139,12 @@ header {
 }
 
 .tienda {
-  background-image: url(/assets/img/shop.webp);
+  background-image: url(/assets/img/tiendafondofinal.webp);
   background-size: cover;
   width: 600px;
   height: 200px;
-  text-shadow: 0 0 20px #000000, 0 0 20px #000000;
+  text-shadow: 2px 2px #000000;
+  box-shadow: 0 0 5px #bbff00, 0 0 10px #bbff00;
 }
 
 /* Footer */
@@ -157,5 +158,5 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #2e2d2d;
+  background-color: #153315;
 }
