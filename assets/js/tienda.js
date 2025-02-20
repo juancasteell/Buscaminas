@@ -1,6 +1,7 @@
 let cart = [];
 let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
 let users = JSON.parse(localStorage.getItem('users')) || [];
+let inventory = JSON.parse(localStorage.getItem('inventory')) || [];
 
 if (!currentUser) {
   alert("Por favor, inicia sesión para acceder a la tienda.");
@@ -46,13 +47,14 @@ function updateCart() {
   cart.forEach((item, index) => {
     let li = document.createElement("li");
     li.textContent = `${item.product} - $${item.price} x${item.quantity}`;
-    
+
     // Botón para eliminar el producto
-    let removeButton = document.createElement("buttonCarrito");
+    let removeButton = document.createElement("button");
     removeButton.textContent = "x";
+    removeButton.className = "buttonCarrito";
     removeButton.onclick = () => removeFromCart(index);
     li.appendChild(removeButton);
-    
+
     cartList.appendChild(li);
     totalPrice += item.price * item.quantity;
   });
@@ -62,6 +64,7 @@ function updateCart() {
 function removeFromCart(index) {
   cart.splice(index, 1);
   updateCart();
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 document.getElementById('checkout').addEventListener('click', function() {
@@ -69,6 +72,18 @@ document.getElementById('checkout').addEventListener('click', function() {
   if (currentUser.points >= totalPrice) {
     currentUser.points -= totalPrice;
     document.getElementById('points').textContent = currentUser.points;
+
+    // Añadir los productos comprados al inventario
+    cart.forEach(item => {
+      const existingItem = inventory.find(i => i.product === item.product);
+      if (existingItem) {
+        existingItem.quantity += item.quantity;
+      } else {
+        inventory.push({ product: item.product, quantity: item.quantity });
+      }
+    });
+
+    localStorage.setItem('inventory', JSON.stringify(inventory));
     cart = [];
     updateCart();
     alert("Compra realizada con éxito.");
@@ -76,6 +91,27 @@ document.getElementById('checkout').addEventListener('click', function() {
     alert("No tienes suficientes puntos para realizar esta compra.");
   }
 });
+
+document.getElementById('inventoryButton').addEventListener('click', function() {
+  const inventoryDiv = document.getElementById('inventory');
+  inventoryDiv.style.display = 'block';
+  updateInventory();
+});
+
+document.getElementById('closeInventory').addEventListener('click', function() {
+  const inventoryDiv = document.getElementById('inventory');
+  inventoryDiv.style.display = 'none';
+});
+
+function updateInventory() {
+  const inventoryList = document.getElementById('inventoryList');
+  inventoryList.innerHTML = "";
+  inventory.forEach((item, index) => {
+    let li = document.createElement("li");
+    li.textContent = `${item.product} - Cantidad: ${item.quantity}`;
+    inventoryList.appendChild(li);
+  });
+}
 
 document.getElementById('logout').addEventListener('click', function() {
   localStorage.removeItem('currentUser');
