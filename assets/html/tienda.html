@@ -1,84 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tienda - Tienda Buscaminas</title>
-    <link rel="stylesheet" href="../styles/tienda.css" />
-    <link rel="stylesheet" href="../styles/style.css" />
-  </head>
-  <body>
-    <header>
-      <img class="logo" src="/assets/img/minesweepr.webp" alt="logo" />
-      <nav class="nav-links">
-        <h1>Tienda Buscaminas</h1>
-      </nav>
-      <a href="../html/index.html" class="inicio"><button>Inicio</button></a>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tienda - Tienda Buscaminas</title>
+  <link rel="stylesheet" href="../styles/tienda.css" />
+  <link rel="stylesheet" href="../styles/style.css" />
+</head>
+<body>
+  <header>
+    <img class="logo" src="/assets/img/minesweepr.webp" alt="logo" />
+    <nav class="nav-links">
+      <h1>Tienda Buscaminas</h1>
+    </nav>
+    <a href="../html/index.html" class="inicio"><button>Inicio</button></a>
+  </header>
 
-    <div id="store" class="store">
-      <div id="profile">
-        <div><h2>Perfil de Jugador</h2>
-          <p>Bienvenido, <span id="username"></span>!</p>
-        </div>
+  <div id="store" class="store">
+    <div id="profile">
+      <div>
+        <h2>Perfil de Jugador</h2>
+        <p>Bienvenido, <span id="username"></span>!</p>
+      </div>
 
-        <div><p>Puntos: <span id="points">0</span></p>
-          <button id="openInventory">Ver Inventario</button> <!-- Botón de inventario -->
-        </div>
+      <div>
+        <p>Puntos: <span id="points">0</span></p>
+        <button id="inventoryButton">Inventario</button>
       </div>
-      
-      <div class="product">
-        <img src="/assets/img/bomba_baguette.webp" alt="bombas personalizadas" />
-        <h3>Bomba Baguette</h3>
-        <p>Precio: $5</p>
-        <button onclick="addToCart('Bomba Baguette', 5)">
-          Agregar al Carrito
-        </button>
-      </div>
-      <div class="product">
-        <img src="/assets/img/bomba_juan.webp" alt="fondo Personalizado" />
-        <h3>Bomba Testo</h3>
-        <p>Precio: $15</p>
-        <button onclick="addToCart('Bomba Testo', 15)">
-          Agregar al Carrito
-        </button>
-      </div>
-      <div class="product">
-        <img src="/assets/img/bombaahmad.webp" alt="fondo Personalizado" />
-        <h3>Bomba Ahmad</h3>
-        <p>Precio: $200</p>
-        <button  onclick="addToCart('Bomba Ahmad', 200)">
-          Agregar al Carrito
-        </button>
-      </div>
-      <div class="cart-container" id="cart-container">
-        <h2>Carrito</h2>
-        <ul id="cart"></ul>
-        <div class="total-price">
-          <div class="mostrar_precio">
-            <span>Total: </span><span id="total"> $0</span>
-          </div>
-         
-        <button id="checkout" class="checkout-btn">Finalizar Compra</button>
-        </div>
-      </div>
-      
     </div>
-    
 
-      <!-- Modal para mostrar el inventario -->
-      <div id="inventoryModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          
-          <ul id="inventoryList"></ul>
+    <div class="product">
+      <img src="/assets/img/bomba_baguette.webp" alt="bombas personalizadas" />
+      <h3>Bomba Baguette</h3>
+      <p>Precio: $5</p>
+      <button onclick="addToCart('Bomba Baguette', 5)">
+        Agregar al Carrito
+      </button>
+    </div>
+    <div class="product">
+      <img src="/assets/img/bomba_juan.webp" alt="fondo Personalizado" />
+      <h3>Bomba Testo</h3>
+      <p>Precio: $15</p>
+      <button onclick="addToCart('Bomba Testo', 15)">
+        Agregar al Carrito
+      </button>
+    </div>
+    <div class="product">
+      <img src="/assets/img/bombaahmad.webp" alt="fondo Personalizado" />
+      <h3>Bomba Ahmad</h3>
+      <p>Precio: $200</p>
+      <button onclick="addToCart('Bomba Ahmad', 200)">
+        Agregar al Carrito
+      </button>
+    </div>
+    <div class="cart-container" id="cart-container">
+      <h2>Carrito</h2>
+      <ul id="cart"></ul>
+      <div class="total-price">
+        <div class="mostrar_precio">
+          <span>Total: </span><span id="total"> $0</span>
         </div>
+        <button id="checkout" class="checkout-btn">Finalizar Compra</button>
       </div>
-      <footer>
-        <p>&copy; 2025 Minesweepr. Todos los derechos reservados.</p>
-    </footer>
+    </div>
+  </div>
 
-  </body>
-<script src="../js/tienda.js"></script>
+  <!-- Modal de Inventario -->
+  <div id="inventory" style="display: none;">
+    <h2>Inventario</h2>
+    <ul id="inventoryList"></ul>
+    <button id="closeInventory">Cerrar</button>
+  </div>
 
+  <footer>
+    <p>&copy; 2025 Minesweepr. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="../js/tienda.js"></script>
+</body>
 </html>

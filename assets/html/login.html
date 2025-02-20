@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,9 +7,7 @@
   <title>Iniciar Sesión - Tienda Buscaminas</title>
   <link rel="stylesheet" href="../styles/style.css" />
   <link rel="stylesheet" href="../styles/login.css" />
-
 </head>
-
 <body>
   <header>
     <img class="logo" src="/assets/img/minesweepr.webp" alt="logo" />
@@ -21,37 +18,31 @@
   </header>
 
   <div id="login-register">
-    <form action="">
-
+    <form id="loginForm">
       <div class="cabecera">
-        <h2>Iniciar Sesion</h2>
+        <h2>Iniciar Sesión</h2>
       </div>
-
       <div class="inputs">
         <i class="fa-solid fa-user"></i>
-        <input type="text" required placeholder="" required>
-        <label for="text">Usuario</label>
+        <input type="text" id="loginUsername" required placeholder="" />
+        <label for="loginUsername">Usuario</label>
       </div>
       <div class="inputs">
         <i class="fa-solid fa-lock"></i>
-        <input type="password" required placeholder="" required>
-        <label for="password">Contraseña</label>
+        <input type="password" id="loginPassword" required placeholder="" />
+        <label for="loginPassword">Contraseña</label>
       </div>
       <button id="submit" type="submit">Login</button>
       <div class="registrarte">
         <p>¿No tienes una cuenta? <a class="registrarte" href="../html/register.html">Regístrate aquí</a></p>
       </div>
-
     </form>
   </div>
-
 
   <script src="../js/login.js"></script>
 
   <footer>
     <p>&copy; 2025 Minesweepr. Todos los derechos reservados.</p>
   </footer>
-  
 </body>
-
 </html>
