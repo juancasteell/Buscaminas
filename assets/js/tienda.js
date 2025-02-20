@@ -1,4 +1,4 @@
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
 let users = JSON.parse(localStorage.getItem('users')) || [];
 let inventory = JSON.parse(localStorage.getItem('inventory')) || [];
@@ -62,10 +62,59 @@ function updateCart() {
 }
 
 function removeFromCart(index) {
-  cart.splice(index, 1);
+  if (cart[index].quantity > 1) {
+    // Si hay más de una unidad, reducir la cantidad en 1
+    cart[index].quantity -= 1;
+  } else {
+    // Si solo hay una unidad, eliminar el ítem del carrito
+    cart.splice(index, 1);
+  }
   updateCart();
-  localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem('cart', JSON.stringify(cart)); // Actualizar el carrito en localStorage
 }
+
+// Función para mostrar toast notifications
+function showToast(message, isSuccess = true) {
+  const toast = document.getElementById('toast');
+  const toastMessage = document.getElementById('toastMessage');
+
+  // Establecer el mensaje y el color de fondo según el tipo de notificación
+  toastMessage.textContent = message;
+  toast.style.backgroundColor = isSuccess ? '#4CAF50' : '#f44336'; // Verde para éxito, rojo para error
+
+  // Mostrar el toast
+  toast.classList.add('show');
+
+  // Ocultar el toast después de 3 segundos
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3000);
+}
+
+// Hacer el inventario arrastrable
+const inventoryDiv = document.getElementById('inventory');
+
+let isDragging = false;
+let offsetX, offsetY;
+
+inventoryDiv.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  offsetX = e.clientX - inventoryDiv.getBoundingClientRect().left;
+  offsetY = e.clientY - inventoryDiv.getBoundingClientRect().top;
+  inventoryDiv.style.cursor = 'grabbing'; // Cambiar el cursor al arrastrar
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    inventoryDiv.style.left = `${e.clientX - offsetX}px`;
+    inventoryDiv.style.top = `${e.clientY - offsetY}px`;
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  inventoryDiv.style.cursor = 'grab'; // Restaurar el cursor
+});
 
 document.getElementById('checkout').addEventListener('click', function() {
   const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
@@ -86,22 +135,21 @@ document.getElementById('checkout').addEventListener('click', function() {
     localStorage.setItem('inventory', JSON.stringify(inventory));
     cart = [];
     updateCart();
-    alert("Compra realizada con éxito.");
+    showToast("Compra realizada con éxito.", true); // Toast de éxito
   } else {
-    alert("No tienes suficientes puntos para realizar esta compra.");
+    showToast("No tienes suficientes puntos para realizar esta compra.", false); // Toast de error
   }
 });
 
 document.getElementById('inventoryButton').addEventListener('click', function() {
-  const inventoryDiv = document.getElementById('inventory');
   inventoryDiv.style.display = 'block';
   updateInventory();
 });
 
 document.getElementById('closeInventory').addEventListener('click', function() {
-  const inventoryDiv = document.getElementById('inventory');
-  inventoryDiv.style.display = 'none';
+  document.getElementById('inventory').style.display = 'none';
 });
+
 
 function updateInventory() {
   const inventoryList = document.getElementById('inventoryList');

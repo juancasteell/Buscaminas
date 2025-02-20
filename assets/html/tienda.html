@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="../styles/tienda.css" />
   <link rel="stylesheet" href="../styles/style.css" />
 </head>
+
 <body>
   <header>
     <img class="logo" src="/assets/img/minesweepr.webp" alt="logo" />
@@ -14,6 +16,9 @@
       <h1>Tienda Buscaminas</h1>
     </nav>
     <a href="../html/index.html" class="inicio"><button>Inicio</button></a>
+    <div id="toast" class="toast">
+      <span id="toastMessage"></span>
+    </div>
   </header>
 
   <div id="store" class="store">
@@ -67,10 +72,11 @@
 
   <!-- Modal de Inventario -->
   <div id="inventory" style="display: none;">
+    <button id="closeInventory" class="close-btn">✖</button>
     <h2>Inventario</h2>
     <ul id="inventoryList"></ul>
-    <button id="closeInventory">Cerrar</button>
   </div>
+  
 
   <footer>
     <p>&copy; 2025 Minesweepr. Todos los derechos reservados.</p>
@@ -78,4 +84,5 @@
 
   <script src="../js/tienda.js"></script>
 </body>
+
 </html>
