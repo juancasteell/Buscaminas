@@ -4,13 +4,13 @@ function register(username, password) {
   const userExists = users.some(u => u.username === username);
   if (userExists) {
     alert("El usuario ya existe. Por favor, inicia sesión.");
-    window.location.href = "login.html"; // Redirigir al login
+    window.location.href = "login.html";
   } else {
-    const newUser = { username, password, points: 0 };
+    const newUser = { username, password, points: 0, inventory: [] }; // Añadir inventario vacío
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));
     alert("Registro exitoso. Por favor, inicia sesión.");
-    window.location.href = "login.html"; // Redirigir al login
+    window.location.href = "login.html";
   }
 }
 
