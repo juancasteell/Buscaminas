@@ -3,6 +3,17 @@ body {
   background-size: cover;
 }
 
+#toggle-audio{
+  position: absolute;
+  top: 110px;
+  right: 10px;
+  cursor: pointer;
+  background-color: #262626;
+  color: #91fef0;
+  text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14;
+  border-color: #91fef0; /* Verde neón */
+  box-shadow: 0 0 5px #91fef0, 0 0 10px #91fef0;
+}
 .titulo {
   font-size: 40px;
   color: #91fef0;
