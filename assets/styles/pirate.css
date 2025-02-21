@@ -12,7 +12,19 @@ body {
   background-image: url(/assets/img/madera.avif);
   padding: 10px;
   border-radius: 7px;
-  border-color: #000000; /* Verde neón */
+  border-color: #000000; 
+  box-shadow: 0 0 5px #000000, 0 0 10px #000000;
+}
+
+#toggle-audio{
+  position: absolute;
+  top: 110px;
+  right: 10px;
+  cursor: pointer;
+  background-image: url(/assets/img/madera.avif);
+  color: #ffffff;
+  text-shadow: 0 0 5px #0059ff, 0 0 10px #0059ff;
+  border-color: #000000;
   box-shadow: 0 0 5px #000000, 0 0 10px #000000;
 }
 
