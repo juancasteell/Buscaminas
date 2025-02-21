@@ -15,9 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let isGameOver = false; // Estado del juego
   let isFirstClick = true; // Verifica si es el primer clic del jugador
 
+  let estoyEn = document.body.dataset.page; // Comprueba en que archivo html estoy
+
   // Funcion que crea tablero
   function createBoard() {
-    botonCentral.innerHTML = "🙂"; // Establece el emoji inicial del botón central
+    botonCentral.innerHTML = "▶"; // Establece el emoji inicial del botón central
     flagsLeft.innerHTML = cantidadBombas; // Muestra la cantidad de banderas restantes
 
     // Crear un tablero vacío (sin bombas)
@@ -31,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Click normal
       cuadrado.addEventListener("click", function (e) {
         if (isGameOver) return; // Si el juego ha terminado, no hacer nada
-        botonCentral.innerHTML = "😬"; // Cambia el emoji del botón central al hacer clic
+        botonCentral.innerHTML = "✅"; // Cambia el emoji del botón central al hacer clic
 
         if (isFirstClick) {
           placeBombs(i); // Ubica las bombas asegurando que el primer clic no sea una bomba
@@ -127,7 +129,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!cuadrado.classList.contains("checked") && flags < cantidadBombas) {
       if (!cuadrado.classList.contains("flag")) {
         cuadrado.classList.add("flag"); // Añade la clase "flag" al cuadrado
-        cuadrado.innerHTML = "🚩"; // Añade el emoji de bandera al cuadrado
+
+        // A MISA GRACIAS DIOS POR ESTA BENDICION DE LINEA
+
+        // let estoyEn = document.body.dataset.page;
+        if (estoyEn == "pirate") {
+          console.log("estoy en pirate");
+          cuadrado.innerHTML = "🏴‍☠️";
+        } else {
+          console.log("estoy en alien");
+          cuadrado.innerHTML = "👽";
+        }
+
         flags++; // Incrementa el contador de banderas colocadas
         flagsLeft.innerHTML = cantidadBombas - flags; // Actualiza el contador de banderas restantes
         checkForWin(); // Verifica si el jugador ha ganado
@@ -245,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
       count += 10; // Incrementa el contador del temporizador
       let segundos = Math.floor(count / 1000); // Convierte el contador a segundos
       timer.innerHTML = segundos; // Muestra los segundos en el elemento del temporizador
-      if (segundos >= 60) {
+      if (segundos >= 5) {
         clearInterval(intervalRef); // Detiene el temporizador si llega a 60 segundos
         timeUp(); // Llama a la función timeUp cuando se acaba el tiempo
       }
@@ -257,15 +270,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Tiempo agotado
   function timeUp() {
-    timer.innerHTML = "END"; // Muestra "END" en el temporizador
-    botonCentral.innerHTML = "😞"; // Cambia el emoji del botón central
+    timer.innerHTML = "FIN."; // Muestra "END" en el temporizador
+    botonCentral.innerHTML = "❌"; // Cambia el emoji del botón central
     resultado.innerHTML = "¡Se acabó el tiempo!"; // Muestra el mensaje de tiempo agotado
     isGameOver = "true"; // Marca el juego como terminado
 
     // Mostrar TODAS las bombas
     cuadrados.forEach((cuadrado) => {
       if (cuadrado.classList.contains("bomb")) {
-        cuadrado.innerHTML = "💣"; // Muestra el emoji de bomba en todos los cuadrados que contienen bombas
+        if (estoyEn == "pirate") {
+          console.log("estoy en pirate");
+          cuadrado.innerHTML = "🧨";
+        } else {
+          console.log("estoy en alien");
+          cuadrado.innerHTML = "💣";
+        }
       }
     });
   }
@@ -273,15 +292,21 @@ document.addEventListener("DOMContentLoaded", () => {
   // Fin del juego
   function gameOver(cuadrado) {
     clearInterval(intervalRef); // Detiene el temporizador
-    timer.innerHTML = "END"; // Muestra "END" en el temporizador
-    botonCentral.innerHTML = "😵"; // Cambia el emoji del botón central
-    resultado.innerHTML = "¡BOOM! ¡Fin del juego!"; // Muestra el mensaje de fin del juego
+    timer.innerHTML = "FIN"; // Muestra "END" en el temporizador
+    botonCentral.innerHTML = "💥"; // Cambia el emoji del botón central
+    resultado.innerHTML = "¡ALLAHUAKBAR!"; // Muestra el mensaje de fin del juego
     isGameOver = true; // Marca el juego como terminado
 
     // Mostrar TODAS las bombas
     cuadrados.forEach((cuadrado) => {
       if (cuadrado.classList.contains("bomb")) {
-        cuadrado.innerHTML = "💣"; // Muestra el emoji de bomba en todos los cuadrados que contienen bombas
+        if (estoyEn == "pirate") {
+          console.log("estoy en pirate");
+          cuadrado.innerHTML = "🧨";
+        } else {
+          console.log("estoy en alien");
+          cuadrado.innerHTML = "💣";
+        }
       }
     });
   }
@@ -299,9 +324,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       if (matches === cantidadBombas) {
         clearInterval(intervalRef); // Detiene el temporizador
-        timer.innerHTML = "WIN"; // Muestra "WIN" en el temporizador
-        botonCentral.innerHTML = "😎"; // Cambia el emoji del botón central
-        resultado.innerHTML = "¡HAS GANADO!"; // Muestra el mensaje de victoria
+        timer.innerHTML = "GG"; // Muestra "WIN" en el temporizador
+        botonCentral.innerHTML = "🎉"; // Cambia el emoji del botón central
+        resultado.innerHTML = "¡BUEENAAA!"; // Muestra el mensaje de victoria
         isGameOver = true; // Marca el juego como terminado
       }
     }
