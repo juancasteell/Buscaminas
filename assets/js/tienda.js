@@ -162,6 +162,11 @@ function updateInventory() {
 }
 
 document.getElementById('logout').addEventListener('click', function() {
+  localStorage.removeItem('currentUser'); // Eliminar el usuario actual del localStorage
+  window.location.href = "login.html"; // Redirigir a la página de inicio de sesión
+});
+
+document.getElementById('logout').addEventListener('click', function() {
   localStorage.removeItem('currentUser');
   window.location.href = "login.html";
 });
