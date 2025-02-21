@@ -21,6 +21,13 @@
     </div>
   </header>
 
+  <audio id="background-audio" loop>
+    <source src="/assets/sound/wii-tienda.mp3" type="audio/mpeg">
+    Tu navegador no soporta el audio.
+  </audio>
+
+  <button id="toggle-audio">🔊 Activar sonido</button>
+
   <div id="store" class="store">
     <div id="profile">
       <div>
@@ -76,7 +83,7 @@
     <h2>Inventario</h2>
     <ul id="inventoryList"></ul>
   </div>
-  
+
 
   <footer>
     <p>&copy; 2025 Minesweepr. Todos los derechos reservados.</p>
@@ -84,6 +91,7 @@
   </footer>
 
   <script src="../js/tienda.js"></script>
+  <script src="../js/juego.js"></script>
 </body>
 
 </html>
