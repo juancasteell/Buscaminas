@@ -260,3 +260,33 @@ buttonCarrito {
   background-color: rgba(255, 0, 0, 0.9);
   transform: scale(1.1);
 }
+
+
+.logout-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color:rgba(255, 0, 0, 0.7); 
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-btn::before{
+  content: "🚪 "; 
+}
+
+.logout-btn:hover {
+  background-color: rgba(255, 0, 0, 0.9); 
+  transform: scale(1.05); 
+}
+
+.logout-btn:active {
+  transform: scale(0.95);
+}
