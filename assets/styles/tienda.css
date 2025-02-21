@@ -236,6 +236,19 @@ buttonCarrito {
   transition: opacity 0.5s, visibility 0.5s;
 }
 
+#toggle-audio{
+  position: absolute;
+  top: 110px;
+  right: 10px;
+  cursor: pointer;
+  background-image: url(/assets/img/bombaahmad.webp);
+  color: #ffffff;
+  text-shadow: 0 0 5px #0059ff, 0 0 10px #0059ff;
+  border-color: #000000;
+  box-shadow: 0 0 5px #000000, 0 0 10px #000000;
+}
+
+
 .toast.show {
   visibility: visible;
   opacity: 1;
